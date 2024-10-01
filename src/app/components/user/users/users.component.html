@@ -1,0 +1,27 @@
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-space-between">
+    <h5 class="mb-0">Products</h5>
+    <ol class="breadcrumb mb-0 ps-0">
+        <li class="breadcrumb-item">
+            <a routerLink="/">
+                <i class="ri-home-8-line"></i>
+                Tableau de bord
+            </a>
+        </li>
+        <li class="breadcrumb-item fw-semibold">Gestion utilisateur</li>
+    </ol>
+</div>
+
+<mat-card class="mb-25 tagus-card">
+    <mat-card-header>
+        <h5 class="mb-0">Utilisateurs</h5>
+        <div class="d-flex align-items-center">
+            <form class="search-box position-relative me-15 d-none d-md-block">
+                <input type="text" class="input-search d-block" placeholder="Search here..">
+                <button type="submit"><i class="ri-search-line"></i></button>
+            </form>
+            <a mat-flat-button class="default-btn tagus small" (click)="addUserModal('300ms', '100ms')">
+                <i class="ri-add-fill"></i> Créer un utilisateur
+            </a>
+        </div>
+    </mat-card-header>
+</mat-card>

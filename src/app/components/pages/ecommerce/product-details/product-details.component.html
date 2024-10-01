@@ -1,0 +1,58 @@
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-space-between">
+    <h5 class="mb-0">Product Details</h5>
+    <ol class="breadcrumb mb-0 ps-0">
+        <li class="breadcrumb-item">
+            <a routerLink="/">
+                <i class="ri-home-8-line"></i>
+                Tableau de bord
+            </a>
+        </li>
+        <li class="breadcrumb-item fw-semibold">Gestion produit</li>
+        <li class="breadcrumb-item fw-semibold">Produit Details</li>
+    </ol>
+</div>
+
+<mat-card
+    class="mb-25 tagus-card"
+>
+    <mat-card-content>
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-md-12">
+                <div class="product-content">
+                    <h4>{{ product.libelleProduit }}</h4>
+                    <div class="rating d-flex align-items-center">
+                        <i class="flaticon-star-1"></i>
+                        <i class="flaticon-star-1"></i>
+                        <i class="flaticon-star-1"></i>
+                        <i class="flaticon-star-1"></i>
+                        <i class="flaticon-star-1"></i>
+                        <span class="fw-semibold">5.0</span>
+                        <span class="gray-color">(61 votes)</span>
+                    </div>
+                    <ul class="info ps-0">
+                        <li class="fw-semibold d-inline-block position-relative border-radius">
+                            <i class="ri-money-dollar-circle-line"></i>
+                            <span class="fw-semibold gray-color d-block">Price :</span>
+                            {{ product.prix }} XOF
+                        </li>
+
+                    </ul>
+
+                    <ul class="list">
+
+                        <li>
+                            <span class="fw-semibold">Category :</span>
+                            {{ product.categorie.libelle }}
+                        </li>
+
+                        <li>
+                            <span class="fw-semibold">Availability :</span>
+                            50 en stock
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

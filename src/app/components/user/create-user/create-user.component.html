@@ -1,0 +1,65 @@
+<div class="create-dialog-box scrollable-dialog">
+    <div class="title d-flex align-items-center justify-content-space-between">
+        <h4 class="mb-0">Creer un utilisateur</h4>
+        <button class="close-btn bg-transparent p-0 border-none"
+            (click)="close()">
+            <i class="flaticon-close"></i>
+        </button>
+    </div>
+    <form (ngSubmit)="saveUser()" [formGroup]="requestUserForm">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label class="d-block fw-semibold">Non d'utilisateur</label>
+                    <input [ngClass]="{
+                        'is-invalid': requestUserForm.controls['username'].invalid && (requestUserForm.controls['username'].dirty || requestUserForm.controls['username'].touched),
+                        'is-valid': requestUserForm.controls['username'].valid && (requestUserForm.controls['username'].dirty || requestUserForm.controls['username'].touched)
+                      }" type="text" formControlName="username"
+                        class="input-control" placeholder="username" required>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label class="d-block fw-semibold">Email</label>
+                    <input [ngClass]="{
+                        'is-invalid': requestUserForm.controls['email'].invalid && (requestUserForm.controls['email'].dirty || requestUserForm.controls['email'].touched),
+                        'is-valid': requestUserForm.controls['email'].valid && (requestUserForm.controls['email'].dirty || requestUserForm.controls['email'].touched)
+                      }" type="email" formControlName="email"
+                        class="input-control" placeholder="email" required>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label class="d-block fw-semibold">Mot de passe</label>
+                    <input [ngClass]="{
+                        'is-invalid': requestUserForm.controls['password'].invalid && (requestUserForm.controls['password'].dirty || requestUserForm.controls['password'].touched),
+                        'is-valid': requestUserForm.controls['password'].valid && (requestUserForm.controls['password'].dirty || requestUserForm.controls['password'].touched)
+                      }" type="text" formControlName="password"
+                        class="input-control" placeholder="Mot de passe"
+                        required>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label
+                        class="d-block mb-12 fw-semibold gray-color">Rôle</label>
+                    <select name id>
+                        <option value="ADMINISTRATEUR">ADMIN</option>
+                        <option value="MANAGER">MANAGER</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-end">
+            <button type="button" class="gray" (click)="close()">
+                <i class="ri-close-fill"></i> Fermer
+            </button>
+            <button type="submit" [disabled]="requestUserForm.invalid">
+                <i class="ri-add-fill"></i> Enregistrer
+            </button>
+        </div>
+    </form>
+</div>

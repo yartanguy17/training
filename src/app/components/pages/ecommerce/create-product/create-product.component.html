@@ -1,0 +1,69 @@
+<div class="create-dialog-box scrollable-dialog">
+    <div class="title d-flex align-items-center justify-content-space-between">
+        <h4 class="mb-0">Creer une catégorie</h4>
+        <button class="close-btn bg-transparent p-0 border-none"
+            (click)="close()">
+            <i class="flaticon-close"></i>
+        </button>
+    </div>
+    <form (ngSubmit)="saveProduct()" [formGroup]="requestProductForm">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label class="d-block fw-semibold">Libelle du
+                        produit</label>
+                    <input
+                        type="text"
+                        formControlName="libelle"
+                        class="input-control"
+                        placeholder="libelle"
+                        required>
+                    <div
+                        *ngIf="requestProductForm.controls['libelle'].invalid && (requestProductForm.controls['libelle'].dirty || requestProductForm.controls['libelle'].touched)"
+                        class="invalid-feedback">
+                        Ce champ est requis.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label class="d-block fw-semibold">Prix du produit</label>
+                    <input
+                        type="text"
+                        formControlName="prixProduit"
+                        class="input-control"
+                        placeholder="Prix"
+                        required>
+                    <div
+                        *ngIf="requestProductForm.controls['prixProduit'].invalid && (requestProductForm.controls['prixProduit'].dirty || requestProductForm.controls['prixProduit'].touched)"
+                        class="invalid-feedback">
+                        Ce champ est requis.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label class="d-block fw-semibold">Catégorie du
+                        produit</label>
+                    <select name id
+                        formControlName="idCategorie"
+                        class="input-control"
+                        required>
+                        <option value>Choisir une catégorie</option>
+                        <option *ngFor="let cat of categories"
+                            [value]="cat.idCategorie">{{ cat.libelle }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="text-end">
+            <button type="button" class="gray" (click)="close()">
+                <i class="ri-close-fill"></i> Fermer
+            </button>
+            <button type="submit" [disabled]="requestProductForm.invalid">
+                <i class="ri-add-fill"></i> Enregistrer
+            </button>
+        </div>
+    </form>
+
+</div>

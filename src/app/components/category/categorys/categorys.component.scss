@@ -1,0 +1,18 @@
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Évite les doubles bordures */
+}
+
+.table th, .table td {
+    padding: 12px; /* Ajoute de l'espace dans les cellules */
+    text-align: left; /* Aligne le texte à gauche */
+    border-bottom: 1px solid #ddd; /* Ajoute une ligne de séparation */
+}
+
+.table th {
+    background-color: #f8f9fa; /* Couleur de fond des en-têtes */
+}
+
+.gray-color {
+    color: #6c757d; /* Couleur grise pour le texte */
+}
