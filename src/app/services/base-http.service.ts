@@ -27,7 +27,7 @@ export class BaseHttpService {
         const authorizationHeader = accessToken ? `Bearer ${accessToken}` : '';
 
         return {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json', 
             'Accept': 'application/json',
             'Authorization': authorizationHeader,
         };

@@ -16,7 +16,12 @@ export class UserHttpService extends BaseHttpService {
     }
 
     createUser(request: UserDto): Observable<UserDto> {
-        return this.httpClient.post<UserDto>(`${this.API_URL}users`, request, {
+        return this.httpClient.post<UserDto>(`${this.API_URL}users`, {
+            username: request.username,
+            password: request.password,
+            emailAdresse: request.emailAdresse,
+            role: request.role
+        }, {
             headers: this.headers,
         });
     }
@@ -34,7 +39,12 @@ export class UserHttpService extends BaseHttpService {
     }
 
     updateUser(request: UserDto): Observable<UserDto> {
-        return this.httpClient.put<UserDto>(`${this.API_URL}users/${request.id}`, request, {
+        return this.httpClient.put<UserDto>(`${this.API_URL}users/${request.id}`, {
+            username: request.username,
+            password: request.password,
+            emailAdresse: request.emailAdresse,
+            role: request.role
+        }, {
             headers: this.headers,
         });
     }

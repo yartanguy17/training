@@ -23,26 +23,69 @@
                         <mat-form-field appearance="fill">
                             <i class="ri-user-3-line"></i>
                             <input matInput
+                                [(ngModel)]="user.username"
                                 formControlName="username" required>
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="tagus-form-group">
-                        <label class="d-block mb-12 fw-semibold gray-color">
-                            Adresse Email</label>
+                        <label
+                            class="d-block mb-12 fw-semibold gray-color">Adresse
+                            Email</label>
                         <mat-form-field appearance="fill">
                             <i class="ri-mail-line"></i>
                             <input matInput
+                                [(ngModel)]="user.emailAddress"
                                 formControlName="emailAdresse" required>
                         </mat-form-field>
                     </div>
                 </div>
-
+            </div>
+            <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="tagus-form-group">
+                        <label class="d-block mb-12 fw-semibold gray-color">Nouveau mot de passe</label>
+                        <mat-form-field appearance="fill">
+                            <i class="ri-lock-3-line"></i>
+                            <input matInput type="password" formControlName="new_password" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="tagus-form-group">
+                        <label class="d-block mb-12 fw-semibold gray-color">Confirmer le mot de passe</label>
+                        <mat-form-field appearance="fill">
+                            <i class="ri-lock-3-line"></i>
+                            <input matInput type="password" formControlName="cf_password" required>
+                        </mat-form-field>
+                    </div>
+                </div>
             </div>
 
-            <button type="submit" mat-raised-button
-                class="tagus fw-semibold">Mettre à jour</button>
+            <div class="row mt-20">
+
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="tagus-form-group">
+                        <label
+                            class="d-block mb-12 fw-semibold gray-color">Votre
+                            Rôle</label>
+                        <mat-form-field appearance="fill">
+                            <input matInput
+                                [(ngModel)]="user.role.libelle"
+                                formControlName="role" required
+                                readonly>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="tagus-form-group">
+                        <button type="submit" mat-raised-button
+                            class="tagus fw-semibold" style="margin-top: 8%; margin-left: 2%;">Mettre à jour</button>
+                    </div>
+                </div>
+            </div>
+
         </form>
     </mat-card-content>
 </mat-card>
