@@ -1,154 +1,40 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Product } from 'src/app/components/pages/ecommerce/models/product';
 
 @Component({
     selector: 'app-team-members-list',
     templateUrl: './team-members-list.component.html',
     styleUrls: ['./team-members-list.component.scss']
 })
-export class TeamMembersListComponent {
+export class TeamMembersListComponent implements OnInit,OnChanges {
 
-    displayedColumns: string[] = ['user', 'email', 'role', 'status'];
-    dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+    @Input() products: Product[] = [];
 
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    displayedColumns: string[] = ['libelle', 'prix', 'categorie', 'action'];
 
-    ngAfterViewInit() {
-        this.dataSource.paginator = this.paginator;
+    dataSource: any
+
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+    constructor() { }
+
+
+    ngOnInit(): void {
+        this.setProductToDataSource();
+    }
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes['products'] && this.products) {
+            this.setProductToDataSource();
+        }
+    }
+    setProductToDataSource(): void {
+        console.log("THIS ::::::::", this.products);
+
+        this.dataSource.data = this.products;
     }
 
-    active = true;
-    inactive = true;
 
 }
 
-export interface PeriodicElement {
-    email: string;
-    role: any;
-    user: any;
-    status: any;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-    {
-        user: {
-            userName: 'Lucile Young',
-            userImage: 'assets/img/user/user8.jpg',
-            userDesignation: '@lyoung4a',
-        },
-        email: 'lyoung4a&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/editor.png',
-            roleTitle: 'Editor'
-        },
-        status: {
-            active: 'Active'
-        }
-    },
-    {
-        user: {
-            userName: 'Jordan Stevenson',
-            userImage: 'assets/img/user/user9.jpg',
-            userDesignation: '@jstevenson5c',
-        },
-        email: 'jstevenson5c&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/admin.png',
-            roleTitle: 'Admin'
-        },
-        status: {
-            inactive: 'Inactive'
-        }
-    },
-    {
-        user: {
-            userName: 'Francis Frank',
-            userImage: 'assets/img/user/user10.jpg',
-            userDesignation: '@ffrank7e',
-        },
-        email: 'ffrank7e&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/maintainer.png',
-            roleTitle: 'Maintainer'
-        },
-        status: {
-            active: 'Active'
-        }
-    },
-    {
-        user: {
-            userName: 'Phoebe Patterson',
-            userImage: 'assets/img/user/user11.jpg',
-            userDesignation: '@ppatterson2g',
-        },
-        email: 'ppatterson2g&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/author.png',
-            roleTitle: 'Author'
-        },
-        status: {
-            active: 'Active'
-        }
-    },
-    {
-        user: {
-            userName: 'James Andy',
-            userImage: 'assets/img/user/user1.jpg',
-            userDesignation: '@andyjm32',
-        },
-        email: 'andyjm32&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/admin.png',
-            roleTitle: 'Admin'
-        },
-        status: {
-            inactive: 'Inactive'
-        }
-    },
-    {
-        user: {
-            userName: 'Sarah Taylor',
-            userImage: 'assets/img/user/user2.jpg',
-            userDesignation: '@taylors32',
-        },
-        email: 'taylors32&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/editor.png',
-            roleTitle: 'Editor'
-        },
-        status: {
-            active: 'Active'
-        }
-    },
-    {
-        user: {
-            userName: 'David Warner',
-            userImage: 'assets/img/user/user3.jpg',
-            userDesignation: '@davidwabc2',
-        },
-        email: 'davidwabc2&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/author.png',
-            roleTitle: 'Author'
-        },
-        status: {
-            active: 'Active'
-        }
-    },
-    {
-        user: {
-            userName: 'Steven Smith',
-            userImage: 'assets/img/user/user4.jpg',
-            userDesignation: '@ssmith542',
-        },
-        email: 'ssmith542&#64;tagus.com',
-        role: {
-            icon: 'assets/img/icon/maintainer.png',
-            roleTitle: 'Maintainer'
-        },
-        status: {
-            active: 'Active'
-        }
-    },
-];

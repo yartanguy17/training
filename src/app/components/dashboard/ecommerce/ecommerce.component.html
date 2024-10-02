@@ -1,15 +1,20 @@
 <div class="row">
     <div class="col-xxl-8">
-        <app-ecommerce-stats></app-ecommerce-stats>
+        <app-ecommerce-stats
+         [products]="products"
+         [categories]="categories"
+         ></app-ecommerce-stats>
 </div>
 
-<app-recent-orders></app-recent-orders>
+<!-- <app-recent-orders></app-recent-orders> -->
 
 <div class="row">
-    <div class="col-xxl-8">
-        <app-team-members-list></app-team-members-list>
-    </div>
     <div class="col-xxl-4">
-        <app-best-selling-products></app-best-selling-products>
+        <app-best-selling-products  [categories]="categories"></app-best-selling-products>
     </div>
+    <div class="col-xxl-8">
+        <!-- <app-team-members-list [products]="products"></app-team-members-list> -->
+        <app-products></app-products>
+    </div>
+
 </div>

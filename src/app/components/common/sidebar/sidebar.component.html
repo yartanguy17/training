@@ -3,7 +3,7 @@
     [ngClass]="{'active': isToggled}"
 >
     <div class="logo bg-white">
-        <a routerLink="/" class="d-flex align-items-center">
+        <a routerLink="/dashboard" class="d-flex align-items-center">
             <img src="assets/img/logo-icon.png" alt="logo">
             <span>Tanguy Training</span>
         </a>
@@ -17,13 +17,12 @@
         <div class="sidebar-inner">
             <div class="sidebar-menu">
                 <mat-accordion>
-<!--                    <span class="sub-title gray-color">MAIN</span>-->
                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = true">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <i class="flaticon-menu-1"></i>
                                 <span class="title">Tableau de bord</span>
-                                <span class="badge">7</span>
+                                <span class="badge">3</span>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <ul class="sidebar-sub-menu">

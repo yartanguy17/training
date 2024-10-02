@@ -1,17 +1,17 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthService} from "../services/auth/auth.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Observable, Subscription} from "rxjs";
-import {SwalService} from "../../../services/swal.service";
-import {Router} from "@angular/router";
-import {LoginDto} from "../modeles/login-dto";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AuthService } from "../services/auth/auth.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Observable, Subscription } from "rxjs";
+import { SwalService } from "../../../services/swal.service";
+import { Router } from "@angular/router";
+import { LoginDto } from "../modeles/login-dto";
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit,OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
 
     requestAuthForm: FormGroup = new FormGroup({});
     isLoading$: Observable<boolean>;
@@ -55,26 +55,21 @@ export class LoginComponent implements OnInit,OnDestroy {
 
             if (email && password) {
                 const log: LoginDto = { email, password };
-
-                console.log("This content of log---:", log);
-
                 this.authService.login(log).subscribe({
                     next: (value) => {
                         if (value) {
                             this.swalService.toastSuccess("Connexion effectuée avec succès !");
                             this.router.navigate(['/dashboard']);
-                            console.log("This content of value---:", value);
-                            // this.getMe();
+                        } else {
+                            this.swalService.toastError("Email ou mot de passe incorrecte. Veuillez réessayer.");
                         }
-                        // this.swalService.toastError("Erreur lors de la connexion. Veuillez réessayer.");
                     },
                     error: (err) => {
                         console.error("Erreur: ", err);
                         this.swalService.toastError("Erreur lors de la connexion. Veuillez réessayer.");
                     },
                     complete: () => {
-                        console.log('Completed');
-
+                        console.log('Connexion terminée');
                     },
                 });
             } else {
@@ -84,5 +79,6 @@ export class LoginComponent implements OnInit,OnDestroy {
             this.swalService.toastError("Veuillez remplir les champs obligatoires.");
         }
     }
+
 
 }

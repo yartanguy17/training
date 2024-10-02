@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Category } from 'src/app/components/category/models/category';
 
 @Component({
     selector: 'app-best-selling-products',
@@ -6,10 +7,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./best-selling-products.component.scss']
 })
 export class BestSellingProductsComponent {
-
+    @Input() categories: Category[] = [];
     constructor(
     ) {}
-
-
 
 }

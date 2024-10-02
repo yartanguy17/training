@@ -8,6 +8,7 @@ import { ProductService } from '../services/product.service';
 import { CreateProductComponent } from '../create-product/create-product.component';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { UpdateProductComponent } from '../update-product/update-product.component';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-products',
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
 
     dataSource: any
 
+    private unsubscribe: Subscription[] = [];
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -34,7 +36,7 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
         this.getAllProducts();
     }
     ngOnDestroy(): void {
-        throw new Error('Method not implemented.');
+        this.unsubscribe.forEach((sb) => sb.unsubscribe());
     }
 
     ngAfterViewInit() {
@@ -44,7 +46,6 @@ export class ProductsComponent implements OnInit, OnDestroy, AfterViewInit {
     getAllProducts() {
         this.productService.getAllProducts().subscribe({
             next: (value) => {
-                console.log("This content of value Usererrrrrrrrrr---:", value);
                 this.products = value;
                 this.dataSource = this.products;
             },
