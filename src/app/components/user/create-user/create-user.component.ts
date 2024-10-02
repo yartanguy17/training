@@ -14,11 +14,13 @@ import { UserService } from '../services/user.service';
 })
 export class CreateUserComponent implements OnInit, OnDestroy {
 
-
     requestUserForm: FormGroup;
+
     isLoading$: Observable<boolean>;
 
     roles: RoleEnum
+
+    hide = true;
 
     private unsubscribe: Subscription[] = [];
 
@@ -41,7 +43,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
     private initUserForm(): void {
         this.requestUserForm = this.fb.group({
             username: ['', Validators.compose([Validators.required,])],
-            emailAdresse: ['', Validators.compose([Validators.required,])],
+            emailAdresse: ['', Validators.compose([Validators.required,Validators.email])],
             password: ['', Validators.compose([Validators.required,])],
             role: ['', Validators.compose([Validators.required,])]
         });
@@ -56,6 +58,8 @@ export class CreateUserComponent implements OnInit, OnDestroy {
                 password: this.requestUserForm.get('password')?.value,
                 role: this.requestUserForm.get('role')?.value,
             };
+            console.log("Crest ::::::::::::: ", user);
+
             this.service.createUser(user).subscribe({
                 next: (value) => {
                     this.swalService.toastSuccess("User enregistré avec succé !")

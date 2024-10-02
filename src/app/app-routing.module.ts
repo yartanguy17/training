@@ -7,17 +7,19 @@ import { EcommerceComponent } from './components/dashboard/ecommerce/ecommerce.c
 import { AccountComponent } from './components/pages/account/account.component';
 import { ProductsComponent } from './components/pages/ecommerce/products/products.component';
 import { CategorysComponent } from './components/category/categorys/categorys.component';
+import { UsersComponent } from './components/user/users/users.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'authentication/login', pathMatch: 'full' },
     { path: 'authentication/login', component: LoginComponent },
     { path: 'dashboard', component: EcommerceComponent },
+    { path: 'dashboard/users', component: UsersComponent },
     { path: 'dashboard/products', component: ProductsComponent },
     { path: 'dashboard/categories', component: CategorysComponent },
     { path: 'account', component: AccountComponent },
     { path: 'error-500', component: InternalErrorComponent },
 
-    { path: '**', component: NotFoundComponent } 
+    { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

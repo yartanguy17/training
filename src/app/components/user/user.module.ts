@@ -21,13 +21,15 @@ import {RouterLink} from "@angular/router";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { UsersComponent } from './users/users.component';
 
 
 
 @NgModule({
   declarations: [
     CreateUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    UsersComponent
   ],
     imports: [
         CommonModule,

@@ -19,6 +19,9 @@ export class AccountComponent implements OnInit, OnDestroy {
 
     private unsubscribe: Subscription[] = [];
 
+    hide = true;
+    hider = true;
+
     constructor(
         private service: UserService,
         private fb: FormBuilder,

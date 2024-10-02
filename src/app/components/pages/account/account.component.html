@@ -48,7 +48,10 @@
                         <label class="d-block mb-12 fw-semibold gray-color">Nouveau mot de passe</label>
                         <mat-form-field appearance="fill">
                             <i class="ri-lock-3-line"></i>
-                            <input matInput type="password" formControlName="new_password" required>
+                            <input matInput [type]="hide ? 'new_password' : 'text'" type="password" formControlName="new_password" required>
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide new_password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
                         </mat-form-field>
                     </div>
                 </div>
@@ -57,7 +60,10 @@
                         <label class="d-block mb-12 fw-semibold gray-color">Confirmer le mot de passe</label>
                         <mat-form-field appearance="fill">
                             <i class="ri-lock-3-line"></i>
-                            <input matInput type="password" formControlName="cf_password" required>
+                            <input matInput [type]="hide ? 'cf_password' : 'text'" type="password" formControlName="cf_password" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide cf_password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
                         </mat-form-field>
                     </div>
                 </div>
