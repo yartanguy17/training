@@ -62,7 +62,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './components/common/sidebar/sidebar.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { HeaderComponent } from './components/common/header/header.component';
-import { RecentOrdersComponent } from './components/dashboard/ecommerce/recent-orders/recent-orders.component';
 import { TeamMembersListComponent } from './components/dashboard/ecommerce/team-members-list/team-members-list.component';
 import { BestSellingProductsComponent } from './components/dashboard/ecommerce/best-selling-products/best-selling-products.component';
 import { EcommerceStatsComponent } from './components/dashboard/ecommerce/ecommerce-stats/ecommerce-stats.component';
@@ -85,7 +84,6 @@ import { UpdateProductComponent } from './components/pages/ecommerce/update-prod
         SidebarComponent,
         FooterComponent,
         HeaderComponent,
-        RecentOrdersComponent,
         TeamMembersListComponent,
         BestSellingProductsComponent,
         EcommerceStatsComponent,

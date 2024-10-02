@@ -48,7 +48,7 @@ export class UserHttpService extends BaseHttpService {
     }
 
     getUser(){
-        return this.getAuthFromLocalStorage()?.user
+        return this.getAuthFromLocalStorage()?.user;
     }
 
 }

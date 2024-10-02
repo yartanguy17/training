@@ -24,10 +24,11 @@ export class AccountComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         private swalService: SwalService,
     ) { }
+
     ngOnInit(): void {
         this.initForm()
-
         this.me()
+        this.user = this.service.getMe()
     }
     ngOnDestroy(): void {
 
@@ -35,8 +36,8 @@ export class AccountComponent implements OnInit, OnDestroy {
 
     private initForm(): void {
         this.requestAccountForm = this.fb.group({
-            emailAdresse: [this.user.emailAdresse ,'', Validators.compose([Validators.required,])],
-            username: [this.user.username ,'', Validators.compose([Validators.required,])],
+            emailAdresse: ['', Validators.compose([Validators.required,])],
+            username: ['', Validators.compose([Validators.required,])],
         });
     }
 
@@ -54,7 +55,7 @@ export class AccountComponent implements OnInit, OnDestroy {
             };
             this.service.updateUser(user).subscribe({
                 next: (value) => {
-                    this.swalService.toastSuccess("User enregistré avec succé !")
+                    this.swalService.toastSuccess("Profile mis à jour avec succé !")
                 }, error(err) {
                     console.log("Erreur::::::::::::::::", err);
                 },
