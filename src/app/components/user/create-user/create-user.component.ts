@@ -54,11 +54,13 @@ export class CreateUserComponent implements OnInit, OnDestroy {
         if (this.requestUserForm.valid) {
             let user: UserDto = {
                 username: this.requestUserForm.get('username')?.value,
-                emailAdresse: this.requestUserForm.get('emailAdresse')?.value,
+                emailAdress: this.requestUserForm.get('emailAdresse')?.value,
                 password: this.requestUserForm.get('password')?.value,
                 role: this.requestUserForm.get('role')?.value,
             };
+            console.log("Crest ::::::::::::: ", );
             console.log("Crest ::::::::::::: ", user);
+            console.log("Crest ::::::::::::: ", );
 
             this.service.createUser(user).subscribe({
                 next: (value) => {

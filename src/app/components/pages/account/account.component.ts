@@ -58,7 +58,7 @@ export class AccountComponent implements OnInit, OnDestroy {
             } else {
                 let userDTO: UserDto = {
                     username: this.requestAccountForm.get('username')?.value,
-                    emailAdresse: this.requestAccountForm.get('emailAdresse')?.value,
+                    emailAdress: this.requestAccountForm.get('emailAdresse')?.value,
                     password: this.requestAccountForm.get('new_password')?.value,
                     role: this.requestAccountForm.get('role')?.value,
                     id: this.user.id

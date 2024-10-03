@@ -8,15 +8,16 @@ import { AccountComponent } from './components/pages/account/account.component';
 import { ProductsComponent } from './components/pages/ecommerce/products/products.component';
 import { CategorysComponent } from './components/category/categorys/categorys.component';
 import { UsersComponent } from './components/user/users/users.component';
+import { authGuard } from './components/authentication/guard/auth.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'authentication/login', pathMatch: 'full' },
     { path: 'authentication/login', component: LoginComponent },
-    { path: 'dashboard', component: EcommerceComponent },
-    { path: 'dashboard/users', component: UsersComponent },
-    { path: 'dashboard/products', component: ProductsComponent },
-    { path: 'dashboard/categories', component: CategorysComponent },
-    { path: 'account', component: AccountComponent },
+    { path: 'dashboard', component: EcommerceComponent,canActivate: [authGuard] },
+    { path: 'dashboard/users', component: UsersComponent,canActivate: [authGuard] },
+    { path: 'dashboard/products', component: ProductsComponent,canActivate: [authGuard] },
+    { path: 'dashboard/categories', component: CategorysComponent,canActivate: [authGuard] },
+    { path: 'account', component: AccountComponent,canActivate: [authGuard] },
     { path: 'error-500', component: InternalErrorComponent },
 
     { path: '**', component: NotFoundComponent }

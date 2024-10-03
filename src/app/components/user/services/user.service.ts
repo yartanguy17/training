@@ -32,7 +32,7 @@ export class UserService {
     }
     createUser(request: UserDto): Observable<any> {
         this.isLoadingSubject.next(true);
-        return this.httpService.createUser(request.username,request.password,request.emailAdresse,request.role,).pipe(
+        return this.httpService.createUser(request).pipe(
             map((response) => response),
             catchError((err) => {
                 this.swalService.toastError(err.error.message);
